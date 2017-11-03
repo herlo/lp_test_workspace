@@ -1,0 +1,58 @@
+---
+dummy:
+  topology: dummy.yml
+  layout: dummy.yml
+
+os-server:
+  topology: os-server.yml
+  layout: os-server.yml
+  hooks:
+    postup:
+      - type: ansible
+        name: ping
+        context: True
+        actions:
+          - playbook: ping.yaml
+            extra_vars: {"ansible_ssh_private_key_file": "/home/herlo/Projects/rh/git/atomic-ci-jobs/project/config/keys/ci-factory"}
+
+os-heat:
+  topology: os-heat.yml
+
+os-obj:
+  topology: os-obj.yml
+
+os-vol:
+  topology: os-vol.yml
+
+aws-ec2:
+  topology: aws-ec2.yml
+  layout: aws-ec2.yml
+  hooks:
+    postup:
+      - type: ansible
+        name: ping
+        context: True
+        actions:
+          - playbook: ping.yaml
+            extra_vars: {"ansible_ssh_private_key_file": "/home/herlo/.ssh/rh_rsa"}
+
+gce:
+  topology: gce.yml
+  layout: gce.yml
+  hooks:
+    postup:
+      - type: ansible
+        name: ping
+        context: True
+        actions:
+          - playbook: ping.yaml
+            extra_vars: {"ansible_ssh_private_key_file": "/home/herlo/.ssh/rh_rsa"}
+
+libvirt:
+  topology: libvirt.yml
+  layout: libvirt.yml
+
+bkr:
+  topology: bkr.yml
+
+
