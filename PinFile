@@ -55,4 +55,6 @@ libvirt:
 bkr:
   topology: bkr.yml
 
+duffy:
+  topology: duffy.yml
 
