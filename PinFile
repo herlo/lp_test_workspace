@@ -15,9 +15,6 @@ os-server:
           - playbook: ping.yaml
             extra_vars: {"ansible_ssh_private_key_file": "/home/herlo/Projects/rh/git/atomic-ci-jobs/project/config/keys/ci-factory"}
 
-os-heat:
-  topology: os-heat.yml
-
 os-obj:
   topology: os-obj.yml
 
@@ -51,6 +48,14 @@ gce:
 libvirt:
   topology: libvirt.yml
   layout: libvirt.yml
+  hooks:
+    postup:
+      - type: ansible
+        name: ping
+        context: True
+        actions:
+          - playbook: ping.yaml
+            extra_vars: {"ansible_ssh_private_key_file": "/home/herlo/.ssh/rh_rsa"}
 
 bkr:
   topology: bkr.yml
