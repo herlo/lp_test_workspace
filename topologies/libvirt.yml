@@ -2,9 +2,9 @@
 topology_name: "libvirt"
 resource_groups:
   - resource_group_name: "ex"
-    resource_group_type: "libvirt"
+    res_group_type: "libvirt"
     resource_definitions:
-      - name: "centos71"
+      - res_name: "centos71"
         type: "libvirt_node"
         uri: 'qemu:///system'
         count: 1
