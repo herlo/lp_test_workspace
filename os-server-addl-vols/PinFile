@@ -12,7 +12,7 @@ os-server-addl-vols:
             image: CentOS-7-x86_64-GenericCloud-1612
             count: 2
             keypair: ci-factory
-            fip_pool: 10.8.240.0
+            fip_pool: 10.8.240.1
             additional_volumes:
               - name: "volume"
                 size: 1
